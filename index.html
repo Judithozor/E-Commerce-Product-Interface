@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahịa Market</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">Ahịa<small>Made in Nigeria</small></div>
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search products, makers, towns" aria-label="Search products" autocomplete="off">
+    </label>
+    <button class="cart-btn" id="open-cart" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="lbl">Cart</span><span class="n mono" id="cart-n">0</span>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <h1>Goods made by hand in sixteen workshops</h1>
+    <p>Adire from Abeokuta, leather from Kano and Aba, clay from Ilorin. Free delivery on orders over ₦60,000.</p>
+  </section>
+
+  <div class="shell">
+    <aside class="filters" id="filters" aria-label="Filters">
+      <div class="fgroup"><h3>Category</h3><div id="f-cats"></div></div>
+      <div class="fgroup">
+        <h3>Price</h3>
+        <input class="range" id="f-price" type="range" min="2000" max="50000" step="500" value="50000" aria-label="Maximum price">
+        <div class="rangeval mono"><span>₦2,000</span><span id="f-price-v">Up to ₦50,000</span></div>
+      </div>
+      <div class="fgroup">
+        <h3>Rating</h3>
+        <div class="seg" id="f-rate">
+          <button type="button" data-r="0" aria-pressed="true">Any</button>
+          <button type="button" data-r="4" aria-pressed="false">4.0+</button>
+          <button type="button" data-r="4.5" aria-pressed="false">4.5+</button>
+        </div>
+      </div>
+      <div class="fgroup">
+        <label class="switch"><input type="checkbox" id="f-stock"> In stock only</label>
+      </div>
+      <button class="clear" id="clear" type="button">Clear all filters</button>
+    </aside>
+
+    <section aria-label="Products">
+      <div class="bar">
+        <button class="fbtn" id="fbtn" type="button" aria-expanded="false" aria-controls="filters">Filters</button>
+        <div class="count" id="count" aria-live="polite"></div>
+        <label class="sort">Sort
+          <select id="sort">
+            <option value="feat">Featured</option>
+            <option value="plow">Price, low to high</option>
+            <option value="phigh">Price, high to low</option>
+            <option value="rate">Best rated</option>
+            <option value="rev">Most reviewed</option>
+          </select>
+        </label>
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="grid" id="grid"></div>
+    </section>
+  </div>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dtitle" aria-hidden="true">
+  <div class="dhead"><h2 id="dtitle">Your cart</h2><button class="x" id="close-cart" aria-label="Close cart">×</button></div>
+  <ul class="dlist" id="dlist"></ul>
+  <div class="dfoot" id="dfoot"></div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
